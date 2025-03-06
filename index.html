@@ -2,9 +2,43 @@
 <html>
 <head>
     <title>Popup Window</title>
+
+    <style>
+        #alert {
+            display: none;
+            background-color: rgb(252, 219, 219);
+            border: 1px solid green;
+            position: fixed;
+            height: 80px;
+            width: 250px;
+            left: 40%;
+            top: 2%;
+            padding: 6px 8px 8px;
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            color: green;
+        }
+        button {
+            border-radius: 12px;
+            height: 2rem;
+            padding: 7px;
+            cursor: pointer;
+            border: 2px solid green;
+            background-color: aqua;
+        }
+        #close {
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+        }
+    </style>
+    
     <script>
         window.onload = function() {
-            alert("Hello! This is a message from your desktop.");
+            alert("!!!YOUR MACHINE HAS BEEN INFECTED!!!");
+            alert("DANGER!!! PLEASE CALL 555-555-5555 FOR ASSISTANCE!");
         };
     </script>
 </head>
