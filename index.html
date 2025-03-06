@@ -6,7 +6,7 @@
     <style>
         #alert {
             display: none;
-            background-color: rgb(252, 219, 219);
+            background-color: rgb(255, 0, 0);
             border: 1px solid green;
             position: fixed;
             height: 80px;
@@ -34,6 +34,21 @@
             bottom: 10px;
         }
     </style>
+
+    <div id="alert">
+        <p>Welcome to the tutorials Point!</p>
+        <button id="close" onclick="closeDialog()">Close</button>
+    </div>
+
+    <script>
+        var alertDiv = document.getElementById("alert");
+        function invokeAlert() {
+            alertDiv.style.display = "block";
+        }
+        function closeDialog() {
+            alertDiv.style.display = "none";
+        }
+    </script>
     
     <script>
         window.onload = function() {
