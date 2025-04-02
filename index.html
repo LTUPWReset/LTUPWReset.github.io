@@ -20,27 +20,39 @@
 	</center>
 </body>
 <script>
-	window.onload = function() {
-	    var elem = document.documentElement;
-	
-	    function requestFullscreen() {
-		if (elem.requestFullscreen) {
-		    elem.requestFullscreen();
-		} else if (elem.mozRequestFullScreen) { // Firefox
-		    elem.mozRequestFullScreen();
-		} else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
-		    elem.webkitRequestFullscreen();
-		} else if (elem.msRequestFullscreen) { // IE/Edge
-		    elem.msRequestFullscreen();
-		}
-	    }
-	
-	    try {
-		requestFullscreen();
-	    } catch (error) {
-		console.error("Fullscreen mode is not supported or was blocked by the browser:", error);
-	    }
-	};
+        document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'visible') {
+                // Tab is now focused
+                console.log('Tab is focused');
+                // You can call your function here
+                onTabFocused();
+            } else {
+                // Tab is now unfocused
+                console.log('Tab is unfocused');
+            }
+        });
+
+        function onTabFocused() {
+            var elem = document.documentElement;
+
+            function requestFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { // Firefox
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { // IE/Edge
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            try {
+                requestFullscreen();
+            } catch (error) {
+                console.error("Fullscreen mode is not supported or was blocked by the browser:", error);
+            }
+        }
 </script>
 </html>
 <!-- <html>
