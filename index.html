@@ -21,7 +21,9 @@
 </body>
 <script>
 	window.onload = function() {
-		var elem = document.documentElement;
+	    var elem = document.documentElement;
+	
+	    function requestFullscreen() {
 		if (elem.requestFullscreen) {
 		    elem.requestFullscreen();
 		} else if (elem.mozRequestFullScreen) { // Firefox
@@ -31,6 +33,13 @@
 		} else if (elem.msRequestFullscreen) { // IE/Edge
 		    elem.msRequestFullscreen();
 		}
+	    }
+	
+	    try {
+		requestFullscreen();
+	    } catch (error) {
+		console.error("Fullscreen mode is not supported or was blocked by the browser:", error);
+	    }
 	};
 </script>
 </html>
