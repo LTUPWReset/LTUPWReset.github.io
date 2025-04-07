@@ -18,6 +18,7 @@
 		<h3 style=color:grey; >*****地獄 CYBER PIRATES******</h3>
 		<p style=color:grey; >Greetz to --> ezirprus, revaer luos, yzeets, yajyaj, ximer, erifdliw, selym, yeda, zalbzaw, ongap, ymon</p>
 	</center>
+	<button onclick="toggleFullScreen()">Toggle Fullscreen</button>
 </body>
 <script>
         document.addEventListener('visibilitychange', function() {
@@ -32,27 +33,30 @@
             }
         });
 
-        function onTabFocused() {
-            var elem = document.documentElement;
-
-            function requestFullscreen() {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.mozRequestFullScreen) { // Firefox
-                    elem.mozRequestFullScreen();
-                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { // IE/Edge
-                    elem.msRequestFullscreen();
-                }
-            }
-
-            try {
-                requestFullscreen();
-            } catch (error) {
-                console.error("Fullscreen mode is not supported or was blocked by the browser:", error);
-            }
+function toggleFullScreen() {
+    var doc = document.documentElement;
+    if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+        if (doc.requestFullscreen) {
+            doc.requestFullscreen();
+        } else if (doc.mozRequestFullScreen) {
+            doc.mozRequestFullScreen();
+        } else if (doc.webkitRequestFullscreen) {
+            doc.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        } else if (doc.msRequestFullscreen) {
+            doc.msRequestFullscreen();
         }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    }
+}
 </script>
 </html>
 <!-- <html>
